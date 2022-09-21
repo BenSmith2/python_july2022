@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+</style>
+<body>
+    <div class="box">
+        <p>{{user.first_name}} {{user.last_name}}, you are logged in.</p>
+        <a href="/logout">logout</a>
+    </div>
+    <div class="box">
+        <form action="/messages/post_message/{{user.id}}" method="post">
+            <textarea name="post_message" cols="30" rows="10"></textarea>
+        </form>
+    </div>
+    
+</body>
+</html>

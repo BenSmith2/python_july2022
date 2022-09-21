@@ -1,0 +1,24 @@
+<!-- views render out what the client sees. use jinja here so some logic. or javascript as well.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for member in members %}
+    <p>{{member.first_name}} {{member.last_name}}</p>
+    {% endfor %}
+
+    <h3>add member</h3>
+    <form action="/save_member" method="POST">
+        first name<input type="text" name="first_name">
+        last name<input type="text" name="last_name">
+        age<input type="number" name="age">
+        household_id(temp)<input type="number" name="household_id">
+        <input type="submit">
+    </form>
+</body>
+</html>

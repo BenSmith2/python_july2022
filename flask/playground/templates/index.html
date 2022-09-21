@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .box{
+    height: 200px;
+    width: 200px;
+    background-color: aqua;
+    margin: 10px;
+
+}
+</style>
+<body>
+    {% for x in range(0,num): %}
+    <div class="box" style="background-color: {{color}};"></div>
+    {% endfor %}
+</body>
+</html>

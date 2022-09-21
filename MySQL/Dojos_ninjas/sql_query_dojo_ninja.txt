@@ -1,0 +1,30 @@
+SELECT *
+FROM dojos;
+
+SET SQL_SAFE_UPDATES = 0;
+
+SELECT *
+FROM ninjas;
+
+INSERT INTO dojos (name)
+VALUES ("austin"),("nepal"),("mariana trench");
+
+DELETE FROM dojos WHERE id > 6;
+
+INSERT INTO dojos (name)
+VALUES ("topeka"),("manassas"),("charlotte");
+
+INSERT INTO ninjas (first_name, dojo_id)
+VALUES ("Chris", 10), ("Phil", 11),("Terry", 12);
+
+SELECT dojos.name, COUNT(dojos.name) AS students FROM dojos
+LEFT JOIN ninjas
+ON ninjas.dojo_id = dojos.id
+WHERE dojo_id = 4
+GROUP BY ninjas.dojo_id;
+
+SELECT *
+FROM dojos
+LEFT JOIN ninjas
+ON dojos.id = ninjas.dojo_id;
+

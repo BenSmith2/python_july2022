@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    <form action="/survey_handle" method="POST">
+        Name:<input type="text" name="name"><br>
+        Location:<select type = "text" name="dojo_location" id="dojo_location"><br>
+            <option value="SEA">Seattle</option>
+            <option value="NY">New York</option>
+            <option value="LA">Los Angeles</option>
+        </select><br>
+        Favorite Programming Language:<select name="favorite_language"  type = "text" id="favorite_language"><br>
+            <option value="PY">Python</option>
+            <option value="JS">JavaScript</option>
+            <option value="C">C++</option>
+        </select><br>
+        Comments: <input type="comments" name="comments"><br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

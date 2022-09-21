@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Recipe</title>
+</head>
+<body>
+    <h3>Edit Recipe</h3>
+    {%with messages = get_flashed_messages()%}
+        {%if messages %}
+            {%for message in messages%}
+                <h3 style="color:red;">{{message}}</h3>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    <form action="/recipe/update/validate/{{current_recipe.id}}" method="POST">
+        Name: <input type="text" name="name" value="{{current_recipe.name}}"><br>
+        Description: <input type="text" name="description" value="{{current_recipe.description}}"><br>
+        Instructions: <input type="text" name="instructions"  value="{{current_recipe.instructions}}"><br>
+        Date Cooked/Made: <input type="date" name="date_cooked" value="{{current_recipe.date_cooked}}"><br>
+        Under 30 Minutes?: 
+        {% if current_recipe.under_30 ==1: %}
+        Yes<input type="radio" name="under_30" value="1" checked/>No<input type="radio" name="under_30" value="0" /><br>
+        {% else: %}
+        Yes<input type="radio" name="under_30" value="1" />No<input type="radio" name="under_30" value="0" checked/><br>
+        {% endif %}
+        <input type="submit" value="submit">
+    </form>
+    <a href="/recipe/logout">logout</a>
+    <a href="/recipe">home</a>
+</body>
+</html>
